@@ -1,12 +1,32 @@
-// Check to see that you can log the samples.json to the console
-d3.json("data/samples.json").then((data) => {
-    console.log(data);
-});
+// Put the names in the samples.json file in the dropdown box
 
-// Log names to console to test
+var select_tag = d3.select("#selDataset");
+
+d3.json("data/samples.json").then((data) => {
+    var subject_ids = importedData.names;
+  
+
+
+// Check to see that you can log the samples.json names to the console
 d3.json("data/samples.json").then((data) => {
     console.log(data.names);
+
+    subject_ids.forEach((id) => {
+        select_tag
+          .append("option")
+          .property("value", id)
+          .text(id);
+      });
+    
 });
+
+
+
+
+
+
+
+
 
 // Log sample_values to console to test
 d3.json("data/samples.json").then((data) => {
