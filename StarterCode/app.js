@@ -18,4 +18,10 @@ d3.json("data/samples.json").then((data) => {
             .property("value", id)
             .text(id);
 });
+
+// 3. Set initial webpage load to first subject ID
+optionChanged(subjectIds[0]);
+
+//4. Create function that is triggerd by the option change in the dropdown box
+
 });
