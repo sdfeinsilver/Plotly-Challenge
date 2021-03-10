@@ -7,9 +7,11 @@ let userSubjectChoice = d3.select("#selDataset");
 // 2. Read in json data and start
 d3.json("data/samples.json").then((data) => {
     // Check data can log in console -- CHECK!
+    console.log("Samples.json Data Below:")
     console.log(data);
     // Assign local variable to subject ids, and check that you can log to console -- CHECK!
     let subjectIds = data.names;
+    console.log("Subject ID's Below:")
     console.log(subjectIds);
     // Append subjectIds to userSubjectChoice handle
     subjectIds.forEach((id) => {
