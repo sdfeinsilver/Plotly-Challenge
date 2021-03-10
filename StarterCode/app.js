@@ -21,9 +21,34 @@ d3.json("data/samples.json").then((data) => {
             .text(id);
 });
 
-// 3. Set initial webpage load to first subject ID
-optionChanged(subjectIds[0]);
+// // 3. Set initial webpage load to first subject ID
+// optionChanged(subjectIds[0]);
 
-//4. Create function that is triggerd by the option change in the dropdown box
+//4. Create function that is triggerd by the option change in the dropdown box (Step 1 of Homework)
+function optionChanged(selectedID) {
+    // Check that userID can log to the console - CHECK!
+    console.log("Selected ID Below:");
+    console.log(selectedID)
+    // Assign sample array to sample variable
+    let samples = data.samples;
+    let results = samples.filter(sampleObj => sampleObj.id = selectedID);
+    // Check that sample data is correct by logging to console
+    console.log("Samples:");
+    console.log(samples);
 
+    // Define userSample at 0th index of userSamples
+    let result = results[0];
+
+    // Check that User defined sample is correct
+    console.log("Result:");
+    console.log(result);
+
+    //Assign Part 1 Homework dat to variables
+    let otuIds = results.otu_ids;
+    let otuLables = result.otu_labels;
+    let sampleValues = result.sample_values;
+
+    
+
+}
 });
