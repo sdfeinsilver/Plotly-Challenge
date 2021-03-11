@@ -80,43 +80,27 @@ function optionChanged(selectedID) {
 
         // Plot using plotly
         Plotly.newPlot("bar", horizData, horizLayout);
+
+        let traceBubble = {
+            x: otuIds,
+            y: sampleValues,
+            text: otuLables,
+            mode: "marker",
+            marker: {
+                size: sampleValues,
+                color: otuIds,
+                colorscale: "Earth"
+            }
+        };
+
+        let dataBubble = [traceBubble];
+
+        let layoutBubble = {
+            hovermode: "closest",
+            xaxis: {title: "OTU ID"},
+            margin: {t:30}
+        };
+        
+        Plotly.newPlot("bubble", dataBubble, layoutBubble);
     });
 };
-
-//         //Now, create bubble chart
-//         let results = samples.filter(sampleObj => sampleObj.id == selectedID);
-//         let result = results[0];
-
-//         // Assign Part 1 Homework dat to variables
-//         let otuIds = results.otu_ids;
-//         let otuLables = result.otu_labels;
-//         let sampleValues = result.sample_values;
-
-//         let traceBubble = {
-//             x: otuIds,
-//             y: sampleValues,
-//             text: outLabels,
-//             mode: "marker",
-//             marker: {
-//                 size: sampleValues,
-//                 color: otuIds,
-//                 colorscale: "Earth"
-//             }
-//         };
-
-//         let data = [traceBubble];
-
-//         let layoutBubble = {
-//             hovermode: "closest",
-//             xaxis: {title: "OTU ID"},
-//             margin: {t:30}
-//         };
-        
-//         Plotly.newplot("bubble", data, layoutBubble);
-//     });
-// };
-
-
-
-// // Set initial webpage load to first subject ID
-// optionChanged(subjectIds[0]);
